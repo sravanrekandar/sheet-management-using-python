@@ -4,13 +4,13 @@ While working with pipenv, we need to set multiple paths
 in .vscode/settings.json.
 This script automates the process
 """
-with open("config.json") as json_file:
+import json
 from pathlib import Path
 
 import platform
-with open("config.json") as json_file:
+
 locator = "which"
-++ src/step03_write_data_sets_to_google_sheets.py	2021-06-17 09:57:10.197850 +0000
+python_interpreter = "python"
 if platform.system() == "Windows":
     locator = "where"
     python_interpreter = ".venv\\Scripts\\python"
@@ -58,7 +58,6 @@ def init():
         settings["python.formatting.provider"] = "black"
         settings["python.formatting.blackArgs"] = ["."]
         settings["python.formatting.blackPath"] = "${workspaceFolder}/.venv/bin/black"
-        settings["python.autoComplete.addBrackets"] = True
         settings["editor.formatOnSave"] = True
 
     print("Writing settings to .vscode/settings.json....")
